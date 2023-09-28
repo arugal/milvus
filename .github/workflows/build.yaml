@@ -13,7 +13,13 @@ jobs:
          uses: actions/checkout@v2
          with:
            fetch-depth: '0'
+       - name: Log in to the Container registry
+         uses: docker/login-action@v1.10.0
+         with:
+           registry: docker.io
+           username: ${{ secrets.DOCKER_USER }}
+           password: ${{ secrets.DOCKER_PASS }}
        - name: build
          run: |
            docker compose build
-           docker images
+           docker push arugaldocker/milvus-env:amd64-centos7-20221214-66bf02d
