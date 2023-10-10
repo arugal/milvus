@@ -27,6 +27,7 @@ macro(build_aws_sdk_s3)
     set(AWS_SDK_S3_CMAKE_ARGS
         "-DCMAKE_BUILD_TYPE=Release"
         "-DBUILD_ONLY=s3"
+        "-DUSE_OPENSSL=ON"
         "-DENABLE_TESTING=OFF"
         "-DAUTORUN_UNIT_TESTS=OFF"
         "-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}")
